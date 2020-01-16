@@ -17,7 +17,12 @@
  **********************************************************************/
 package com.javanes.framework.config;
 
+import javax.sql.DataSource;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -29,4 +34,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(HelloConfigProperties.class)
 public class HelloConfig {
+	@ConfigurationProperties(prefix = "spring.datasource")
+	@Bean(name = "DataSource")
+	public DataSource InformixDataSource() 
+	{
+		DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+		dataSourceBuilder.driverClassName("com.informix.jdbc.IfxDriver");
+		dataSourceBuilder.url("jdbc:informix-sqli://10.26.168.19:30003/bdinteg:INFORMIXSERVER=coppelbex_shm");
+		dataSourceBuilder.username("userCppel");
+		dataSourceBuilder.password("C0pp3I_08$wop*w1st6tp6r");
+		return dataSourceBuilder.build();
+	}
 }
