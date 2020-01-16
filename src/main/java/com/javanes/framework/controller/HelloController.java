@@ -21,7 +21,7 @@ import com.javanes.framework.config.HelloConfigProperties;
 import com.javanes.framework.model.BaseResponse;
 import com.javanes.framework.model.HelloResponse;
 import com.javanes.framework.model.ReqBase;
-import com.javanes.framework.persistence.StoreProcedure;
+import persistence.StoreProcedure;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
