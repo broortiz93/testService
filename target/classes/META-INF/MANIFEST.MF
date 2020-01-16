@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: Javanes :: Framework :: Hello :: Service
+Implementation-Version: ALFA-1.0
+Built-By: brosquero
+Implementation-Vendor-Id: com.javanes.framework
+Build-Jdk: 1.8.0_221
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/jso-fwk-hello-service
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Javanes Solutions S.A. de C.V.
+

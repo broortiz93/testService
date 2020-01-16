@@ -1,0 +1,14 @@
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/model/ProfileResponse.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/model/EntityBase.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/controller/HelloController.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/persistence/StoreProcedure.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/controller/ProfileController.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/model/BaseResponse.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/config/HelloConfigProperties.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/HelloMicroserviceApp.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/model/Base.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/config/SwaggerConfig.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/model/HelloResponse.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/persistence/IstoreProcedure.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/config/HelloConfig.java
+/Users/brosquero/git/microservicios/jso-fwk-hello-service/src/main/java/com/javanes/framework/model/ReqBase.java

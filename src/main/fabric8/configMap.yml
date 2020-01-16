@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-jso-fwk-hello-service
+data:
+  application.properties: |-
+    # ===================================================================
+    # Propiedades geenrales de la aplicación
+    # ===================================================================
+    #Dirección IP por la que escucha el servidor
+    server.address=0.0.0.0
+    # Puerto por defecto donde escucha el servidor
+    server.port=8080
+    
+    # ===================================================================
+    # Propiedades geenrales de actuator
+    # ===================================================================
+    #Puerto de administracion
+    management.server.port=8181
+    # Puntos de actuator expuestos
+    management.endpoints.web.exposure.include=health,info
+    # Detalle del servicio expuesto por actuator
+    management.endpoint.health.show-details=never
+    
+    # ===================================================================
+    # Propiedades geenrales del log
+    # ===================================================================
+    # Modo "debug" del log activado
+    debug=false
+    # Modo "trace" del log activado
+    trace=false
+    # Nivel de detalle del log expuesto por el framework de Spring
+    logging.level.org.springframework=INFO
+    # Nivel de detalle del log expuesto por el arquetipo
+    logging.level.com.javanes.framework=INFO
+    
+    # ===================================================================
+    # PROPIEDADES PERSONALIZADAS DE LA APLICACION
+    #
+    # Se pueden sobre escribir las propiedades del archivo principal
+    # ( jso-config-client.properties ) para cada uno de los ambientes.
+    # ===================================================================
+    custom.hello=Hola configuracion "dev"
