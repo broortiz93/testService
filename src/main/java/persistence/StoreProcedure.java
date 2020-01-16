@@ -19,7 +19,7 @@ import com.javanes.framework.model.EntityBase;
 
 
 @Repository
-public class StoreProcedure implements IstoreProcedure {
+public class StoreProcedure {
 	private JdbcTemplate jdbcTemplate;
 	private String BDIsac="bdisac";
 	private String BDInteg="bdinteg";
@@ -34,7 +34,7 @@ public class StoreProcedure implements IstoreProcedure {
 
 
 	
-	@Override
+	
 	public EntityBase getParams(Integer id) throws Exception {
 		try {
 			SimpleJdbcCall jdbcCall = new 
@@ -52,7 +52,7 @@ public class StoreProcedure implements IstoreProcedure {
 		}
 	}
 
-	@Override
+	
 	public EntityBase getFecha() throws Exception {
 		try {
 			SimpleJdbcCall jdbcCall = new 
@@ -68,7 +68,7 @@ public class StoreProcedure implements IstoreProcedure {
 		}
 	}
 
-	@Override
+
 	public void consultaParametros(ByteArrayInputStream byteIn) throws Exception {
 		Connection connection = null;
 		
