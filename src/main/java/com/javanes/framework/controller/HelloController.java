@@ -21,8 +21,8 @@ import com.javanes.framework.config.HelloConfigProperties;
 import com.javanes.framework.model.BaseResponse;
 import com.javanes.framework.model.HelloResponse;
 import com.javanes.framework.model.ReqBase;
-
-import persistence.IstoreProcedure;
+import com.javanes.framework.persistence.IstoreProcedure;
+import com.javanes.framework.persistence.StoreProcedure;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,7 +65,8 @@ public class HelloController {
    * @return Una clase de respuesta que puede ser mapeada a formato
    * JSON.
    */
-  @Autowired IstoreProcedure sp;
+  @Autowired 
+  private StoreProcedure sp;
   
   @GetMapping(path = "/hello", produces = "application/json")
   public HelloResponse getHello() {
