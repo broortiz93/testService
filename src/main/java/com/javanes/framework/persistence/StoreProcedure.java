@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -94,9 +95,6 @@ public class StoreProcedure  {
 			
 			
 			
-			LOG.info("OOOUUUTTT: "+out.get("#result-set-1"));
-			LOG.info("OOOUUUTTT: "+out.get("#result-set-2"));
-//			out.entrySet().forEach(System.out::println);
 			EntityBase student = new EntityBase();
 			student.setCodReturn((String) out.get("cCodret"));
 			student.setCodValor((String) out.get("cValor"));
@@ -151,6 +149,58 @@ public class StoreProcedure  {
 		}
 		
 	}
+	
+	public EntityBase spPagoServicios() throws Exception {
+		try {
+			SimpleJdbcCall jdbcCall = new 
+					SimpleJdbcCall(jdbcTemplate).withSchemaName(BDIsac).withProcedureName(spPagoServicio).declareParameters(
+		                      new SqlParameter("pEmpresa", Types.CHAR),new SqlParameter("pSucursal", Types.CHAR),new SqlParameter("pUsuario", Types.CHAR),
+		                      new SqlParameter("pTransCargo", Types.CHAR),new SqlParameter("pTransAbono", Types.CHAR),new SqlParameter("pTransSuc", Types.CHAR),
+		                      new SqlParameter("pFolioSuc", Types.CHAR),new SqlParameter("pNumCtaOrigen", Types.CHAR),new SqlParameter("pNumCtaDestino", Types.CHAR),
+		                      new SqlParameter("pCheque", Types.INTEGER),new SqlParameter("pMonto", Types.NUMERIC),new SqlParameter("pMoneda", Types.CHAR),
+		                      new SqlParameter("pReferencia", Types.CHAR),new SqlParameter("pNumTarjetaOrigen", Types.CHAR),new SqlParameter("pNumTarjetaDestino", Types.CHAR),
+		                      new SqlParameter("pUsuAutoriza", Types.CHAR),new SqlParameter("pMontoTotal", Types.NUMERIC),new SqlParameter("pMontoFirme", Types.NUMERIC),
+		                      new SqlParameter("pMontoSBC", Types.NUMERIC),new SqlParameter("pMontoRem", Types.NUMERIC),new SqlParameter("pDiasRet", Types.SMALLINT),
+		                      new SqlParameter("pDocto", Types.INTEGER),new SqlParameter("pCategoria", Types.CHAR),new SqlParameter("pConvenio", Types.CHAR),
+		                      new SqlParameter("cRefTelefono", Types.CHAR),new SqlParameter("cRefVerificador", Types.CHAR),new SqlParameter("cFormaPago", Types.CHAR),
+		                      new SqlParameter("cCuentaCargo", Types.CHAR),new SqlParameter("cTransacc_suc", Types.CHAR),new SqlParameter("dFechaPago", Types.DATE)
+		                      );
+			jdbcCall.declareParameters(new SqlReturnResultSet("result", new ResultSetExtractor<Map<String, Object>>() {
+				@Override
+				public  Map<String, Object>  extractData(ResultSet resultSet) throws SQLException {
+					Map<String, Object> map = null;
+			        while(resultSet.next()) {
+			        	map = new HashMap<String, Object>();
+			            map.put("vcodret", resultSet.getString(1));
+			            map.put("vcodretRev", resultSet.getString(2));
+			        }
+			        return map;
+			    }
+			 }));
+			 
+			jdbcCall.compile();
 
+			
+			SqlParameterSource in = new MapSqlParameterSource().addValue("pEmpresa", "001").addValue("pSucursal", "5003").addValue("pUsuario", "transBPI")
+					.addValue("pTransCargo", "1137").addValue("pTransAbono", "1167").addValue("pTransSuc", "8651")
+					.addValue("pFolioSuc", "0158467718274728").addValue("pNumCtaOrigen", "12000872207").addValue("pNumCtaDestino", "99010000056")
+					.addValue("pCheque", 0).addValue("pMonto", 299.00).addValue("pMoneda", "01")
+					.addValue("pReferencia", "501177161582 VETEVE").addValue("pNumTarjetaOrigen", "").addValue("pNumTarjetaDestino", "")
+					.addValue("pUsuAutoriza", "").addValue("pMontoTotal", 299.00).addValue("pMontoFirme", 299.00)
+					.addValue("pMontoSBC", 0).addValue("pMontoRem", 0).addValue("pDiasRet", 0)
+					.addValue("pDocto", 0).addValue("pCategoria", "06").addValue("pConvenio", "001")
+					.addValue("cRefTelefono", "501177161582").addValue("cRefVerificador", "2").addValue("cFormaPago", "2")
+					.addValue("cCuentaCargo", "12000872207").addValue("cTransacc_suc", "8651").addValue("dFechaPago", new Date("2020/01/16"));
+			Map<String, Object> out = jdbcCall.execute(in);
 
+			out.entrySet().forEach(System.out::println);
+			EntityBase student = new EntityBase();
+			student.setCodReturn((String) out.get("cCodret"));
+			student.setCodValor((String) out.get("cValor"));
+			return student;      
+		} catch (Exception e) {
+			LOG.info("intentando getParams "+e);
+			throw new Exception("Error al ejecutar SP");
+		}
+	}
 }
