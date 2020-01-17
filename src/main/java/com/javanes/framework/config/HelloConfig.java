@@ -40,7 +40,7 @@ public class HelloConfig {
 	{
 		DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
 		dataSourceBuilder.driverClassName("com.informix.jdbc.IfxDriver");
-		dataSourceBuilder.url("jdbc:informix-sqli://10.26.168.19:30003/bdinteg:INFORMIXSERVER=coppelbex_shm");
+		dataSourceBuilder.url("jdbc:informix-sqli://10.26.167.51:31526/bdinteg:INFORMIXSERVER=coppel_tcp;IFX_LOCK_MODE_WAIT=3;IFX_ISOLATION_LEVEL=1;");
 		dataSourceBuilder.username("userCppel");
 		dataSourceBuilder.password("C0pp3I_08$wop*w1st6tp6r");
 		return dataSourceBuilder.build();
